@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="baseline" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/baseline" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/baseline" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=athlon64" />
+					<Add option="-O3" />
+					<Add option="-std=c++11" />
+				</Compiler>
+				<Linker>
+					<Add library="libs/openssl/lib/libcrypto.so" />
+					<Add library="libs/openssl/lib/libssl.so" />
+					<Add library="libs/curl/lib/libcurl.so" />
+					<Add library="libs/cpuid/lib/libcpuid.so" />
+					<Add library="libs/boost/lib/libboost_atomic-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_chrono-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_container-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_context-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_coroutine-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_date_time-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_exception-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_filesystem-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_iostreams-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_locale-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_log-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_program_options-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_random-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_serialization-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_regex-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_signals-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_system-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_thread-gcc49-mt-1_58.a" />
+					<Add library="libs/boost/lib/libboost_timer-gcc49-mt-1_58.a" />
+					<Add library="pthread" />
+				</Linker>
+			</Target>
+			<Target title="lib_share">
+				<Option output="bin/lib_share/baseline" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/lib_share/" />
+				<Option object_output="obj/lib_share/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-fPIC" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-rpath=./libs" />
+					<Add library="libs/cpuid/lib/libcpuid.a" />
+					<Add library="boost_log-gcc49-mt-1_58" />
+					<Add library="boost_system-gcc49-mt-1_58" />
+					<Add library="boost_thread-gcc49-mt-1_58" />
+					<Add library="pthread" />
+					<Add library="libs/curl/lib/libcurl.a" />
+					<Add library="libs/openssl/lib/libssl.so" />
+					<Add library="libs/openssl/lib/libcrypto.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-march=athlon64" />
+			<Add option="-O3" />
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="$(#boost.include)" />
+			<Add directory="$(#openssl.include)" />
+			<Add directory="$(#curl.include)" />
+			<Add directory="$(#libcpuid.include)" />
+			<Add directory="$(#baseline.include)" />
+		</Compiler>
+		<Linker>
+			<Add directory="$(#boost.lib)" />
+			<Add directory="$(#openssl.lib)" />
+			<Add directory="$(#curl.lib)" />
+			<Add directory="$(#libcpuid.lib)" />
+			<Add directory="$(#baseline.lib)" />
+		</Linker>
+		<Unit filename="include/baseline/ObjectBridge.h" />
+		<Unit filename="include/baseline/ObjectFactory.h" />
+		<Unit filename="include/baseline/common.h" />
+		<Unit filename="include/baseline/config/config.h" />
+		<Unit filename="include/baseline/config/config_appConfig.h" />
+		<Unit filename="include/baseline/config/config_base.h" />
+		<Unit filename="include/baseline/crypt/crypt.h" />
+		<Unit filename="include/baseline/crypt/crypt_base.h" />
+		<Unit filename="include/baseline/crypt/openssl/cert/cert.h" />
+		<Unit filename="include/baseline/crypt/openssl/cert/pkcs.h" />
+		<Unit filename="include/baseline/crypt/openssl/crypt.h" />
+		<Unit filename="include/baseline/crypt/openssl/crypt_base.h" />
+		<Unit filename="include/baseline/crypt/openssl/hash/hasher.h" />
+		<Unit filename="include/baseline/crypt/openssl/public/rsa.h" />
+		<Unit filename="include/baseline/crypt/openssl/symmetric/aes.h" />
+		<Unit filename="include/baseline/io/io.h" />
+		<Unit filename="include/baseline/io/io_base.h" />
+		<Unit filename="include/baseline/io/io_cache.h" />
+		<Unit filename="include/baseline/io/io_cache_internal.h" />
+		<Unit filename="include/baseline/io/io_curl.h" />
+		<Unit filename="include/baseline/io/io_file.h" />
+		<Unit filename="include/baseline/io/io_net.h" />
+		<Unit filename="include/baseline/io/io_net_tcp.h" />
+		<Unit filename="include/baseline/module/module.h" />
+		<Unit filename="include/baseline/module/module_base.h" />
+		<Unit filename="include/baseline/module/module_boot.h" />
+		<Unit filename="include/baseline/module/module_config_file.h" />
+		<Unit filename="include/baseline/task/task_processor.h" />
+		<Unit filename="include/baseline/task/task_wrapped.h" />
+		<Unit filename="include/baseline/util/util.h" />
+		<Unit filename="include/baseline/util/util_ByteArray.h" />
+		<Unit filename="include/baseline/util/util_base.h" />
+		<Unit filename="include/baseline/util/util_base64.h" />
+		<Unit filename="include/baseline/util/util_crc.h" />
+		<Unit filename="include/baseline/util/util_hardware_ccpuid.h" />
+		<Unit filename="include/baseline/util/util_hardware_ccpuid.hpp" />
+		<Unit filename="include/baseline/util/util_hex.h" />
+		<Unit filename="include/baseline/util/util_json.h" />
+		<Unit filename="include/baseline/util/util_json_seasy.h" />
+		<Unit filename="include/baseline/util/util_log.h" />
+		<Unit filename="include/baseline/util/util_pool.h" />
+		<Unit filename="include/baseline/util/util_regex.h" />
+		<Unit filename="include/baseline/util/util_string.h" />
+		<Unit filename="include/baseline/util/util_time.h" />
+		<Unit filename="include/baseline/util/util_uuid.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/config/config_base.cpp" />
+		<Unit filename="src/crypt/crypt_base.cpp" />
+		<Unit filename="src/crypt/openssl/cert/cert.cpp" />
+		<Unit filename="src/crypt/openssl/cert/pkcs.cpp" />
+		<Unit filename="src/crypt/openssl/hash/hasher.cpp" />
+		<Unit filename="src/crypt/openssl/public/rsa.cpp" />
+		<Unit filename="src/crypt/openssl/symmetric/aes.cpp" />
+		<Unit filename="src/io/io_curl.cpp" />
+		<Unit filename="src/io/io_file.cpp" />
+		<Unit filename="src/io/io_net_tcp.cpp" />
+		<Unit filename="src/module/module_boot.cpp" />
+		<Unit filename="src/module/module_config_file.cpp" />
+		<Unit filename="src/util/util_ByteArray.cpp" />
+		<Unit filename="src/util/util_crc.cpp" />
+		<Unit filename="src/util/util_hardware_ccpuid.cpp" />
+		<Unit filename="src/util/util_hex.cpp" />
+		<Unit filename="src/util/util_json.cpp" />
+		<Unit filename="src/util/util_json_seasy.cpp" />
+		<Unit filename="src/util/util_log.cpp" />
+		<Unit filename="src/util/util_regex.cpp" />
+		<Unit filename="src/util/util_string.cpp" />
+		<Unit filename="src/util/util_time.cpp" />
+		<Unit filename="src/util/util_uuid.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="/home/lvdou/softwares/delayBC_console/" />
+				<search_path add="/usr/include" />
+				<search_path add="/usr/local/include" />
+			</code_completion>
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

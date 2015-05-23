@@ -1,0 +1,30 @@
+#include "../../include/crypt/hurlant/symmetric/symmetric.h"
+
+namespace crypt
+{
+    namespace hurlant
+    {
+        namespace symmetric
+        {
+            CBCMode::CBCMode(ISymmetricKey key, IPad padding=NULL)
+            {
+                super(key, padding);
+            }
+
+            void CBCMode::encrypt(util::hex::ByteArray src)
+            {
+            	
+            }
+            
+            void CBCMode::decrypt(util::hex::ByteArray src)
+            {
+            	
+            }
+            
+            std::string toString()
+            {
+            	return key.toString()+"-cbc";
+            }
+        };
+    }
+}

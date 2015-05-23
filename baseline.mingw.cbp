@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="frame_app_lvdou" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/frame_app_lvdou" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="include/crypt" />
+					<Add directory="include/module" />
+					<Add directory="include/crypt/hurlant/symmetric" />
+					<Add directory="include/crypt/hurlant/prng" />
+					<Add directory="include/config/openssl" />
+					<Add directory="include/util" />
+				</Compiler>
+				<Linker>
+					<Add directory="$(#boost.lib)" />
+					<Add directory="$(#openssl.lib)" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/frame_app_lvdou" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="include/crypt" />
+					<Add directory="include/module" />
+					<Add directory="include/crypt/hurlant/symmetric" />
+					<Add directory="include/crypt/hurlant/prng" />
+					<Add directory="include/config/openssl" />
+					<Add directory="include/util" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="openssl_envelope">
+				<Option output="bin/openssl_envelope/frame_app_lvdou" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/openssl_envelope/" />
+				<Option object_output="obj/openssl_envelope/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-O2" />
+					<Add directory="include/util" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-march=k8" />
+			<Add option="-O3" />
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-U__STRICT_ANSI__" />
+			<Add option="-D__USE_W32_SOCKETS" />
+			<Add option="-D_WIN32_WINNT=0x0501" />
+			<Add option="-DWINVER=0x0501" />
+			<Add directory="$(#boost)/include" />
+			<Add directory="$(#openssl)/include" />
+			<Add directory="$(#curl)/include" />
+			<Add directory="$(#botan)/include" />
+		</Compiler>
+		<Linker>
+			<Add library="C:\libs\boost\lib\32\libboost_atomic-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_chrono-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_container-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_coroutine-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_date_time-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_exception-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_filesystem-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_iostreams-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_locale-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_log_setup-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_log-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_program_options-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_random-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_regex-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_serialization-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_signals-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_system-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_thread-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_timer-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\boost\lib\32\libboost_wserialization-mgw48-mt-1_57.a" />
+			<Add library="C:\libs\openssl\lib\32\libcrypto.dll.a" />
+			<Add library="C:\MinGW\lib\libwinmm.a" />
+			<Add library="wsock32" />
+			<Add library="C:\libs\curl\lib\32\libcurl.dll.a" />
+			<Add library="C:\libs\botan\lib\32\libbotan-1.10.a" />
+			<Add library="C:\libs\openssl\lib\32\libssl.dll.a" />
+			<Add directory="$(#boost)/lib" />
+			<Add directory="$(#openssl)/lib" />
+			<Add directory="$(#curl)/lib" />
+		</Linker>
+		<Unit filename="include/ObjectBridge.h" />
+		<Unit filename="include/ObjectFactory.h" />
+		<Unit filename="include/common.h" />
+		<Unit filename="include/config/config.h" />
+		<Unit filename="include/config/config_appConfig.h" />
+		<Unit filename="include/config/config_base.h" />
+		<Unit filename="include/config/config_tcpServer.h" />
+		<Unit filename="include/crypt/crypt.h" />
+		<Unit filename="include/crypt/crypt_base.h" />
+		<Unit filename="include/crypt/openssl/cert/cert.h" />
+		<Unit filename="include/crypt/openssl/cert/pkcs.h" />
+		<Unit filename="include/crypt/openssl/crypt.h" />
+		<Unit filename="include/crypt/openssl/crypt_base.h" />
+		<Unit filename="include/crypt/openssl/crypt_public.h" />
+		<Unit filename="include/crypt/openssl/hash/hasher.h" />
+		<Unit filename="include/crypt/openssl/public/rsa.h" />
+		<Unit filename="include/crypt/openssl/symmetric/aes.h" />
+		<Unit filename="include/io/io.h" />
+		<Unit filename="include/io/io_base.h" />
+		<Unit filename="include/io/io_cache_internal.h" />
+		<Unit filename="include/io/io_curl.h" />
+		<Unit filename="include/io/io_file.h" />
+		<Unit filename="include/io/io_net.h" />
+		<Unit filename="include/io/io_net_tcp.h" />
+		<Unit filename="include/module/module.h" />
+		<Unit filename="include/module/module_base.h" />
+		<Unit filename="include/module/module_boot.h" />
+		<Unit filename="include/module/module_config_file.h" />
+		<Unit filename="include/module/module_net_tcpServer.h" />
+		<Unit filename="include/module/module_net_tcpServer_connection.h" />
+		<Unit filename="include/module/module_net_tcpServer_header.h" />
+		<Unit filename="include/module/module_net_tcpServer_io_service_pool.h" />
+		<Unit filename="include/module/module_net_tcpServer_mime_types.h" />
+		<Unit filename="include/module/module_net_tcpServer_reply.h" />
+		<Unit filename="include/module/module_net_tcpServer_request.h" />
+		<Unit filename="include/module/module_net_tcpServer_request_handler.h" />
+		<Unit filename="include/module/module_net_tcpServer_request_parser.h" />
+		<Unit filename="include/task/task_processor.h" />
+		<Unit filename="include/task/task_wrapped.h" />
+		<Unit filename="include/util/util.h" />
+		<Unit filename="include/util/util_ByteArray.h" />
+		<Unit filename="include/util/util_base.h" />
+		<Unit filename="include/util/util_base64.h" />
+		<Unit filename="include/util/util_crc.h" />
+		<Unit filename="include/util/util_hardware_ccpuid.h" />
+		<Unit filename="include/util/util_hardware_ccpuid.hpp" />
+		<Unit filename="include/util/util_hex.h" />
+		<Unit filename="include/util/util_json.h" />
+		<Unit filename="include/util/util_json_auto.h" />
+		<Unit filename="include/util/util_json_seasy.h" />
+		<Unit filename="include/util/util_log.h" />
+		<Unit filename="include/util/util_pool.h" />
+		<Unit filename="include/util/util_regex.h" />
+		<Unit filename="include/util/util_string.h" />
+		<Unit filename="include/util/util_time.h" />
+		<Unit filename="include/util/util_uuid.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/crypt/crypt_base.cpp" />
+		<Unit filename="src/crypt/openssl/cert/cert.cpp" />
+		<Unit filename="src/crypt/openssl/cert/pkcs.cpp" />
+		<Unit filename="src/crypt/openssl/public/rsa.cpp" />
+		<Unit filename="src/io/io_curl.cpp" />
+		<Unit filename="src/io/io_file.cpp" />
+		<Unit filename="src/io/io_net_tcp.cpp" />
+		<Unit filename="src/module/module_boot.cpp" />
+		<Unit filename="src/module/module_config_file.cpp" />
+		<Unit filename="src/module/module_net_tcpServer.cpp" />
+		<Unit filename="src/module/module_net_tcpServer_connection.cpp" />
+		<Unit filename="src/module/module_net_tcpServer_io_service_pool.cpp" />
+		<Unit filename="src/module/module_net_tcpServer_reply.cpp" />
+		<Unit filename="src/module/module_net_tcpServer_request_handler.cpp" />
+		<Unit filename="src/module/module_net_tcpServer_request_parser.cpp" />
+		<Unit filename="src/util/util_ByteArray.cpp" />
+		<Unit filename="src/util/util_crc.cpp" />
+		<Unit filename="src/util/util_hardware_ccpuid.cpp" />
+		<Unit filename="src/util/util_hex.cpp" />
+		<Unit filename="src/util/util_json.cpp" />
+		<Unit filename="src/util/util_json_seasy.cpp" />
+		<Unit filename="src/util/util_log.cpp" />
+		<Unit filename="src/util/util_pool.cpp" />
+		<Unit filename="src/util/util_regex.cpp" />
+		<Unit filename="src/util/util_string.cpp" />
+		<Unit filename="src/util/util_time.cpp" />
+		<Unit filename="src/util/util_uuid.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="/home/lvdou/softwares/delayBC_console/" />
+				<search_path add="/usr/include" />
+				<search_path add="/usr/local/include" />
+			</code_completion>
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

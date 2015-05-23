@@ -1,0 +1,125 @@
+#ifndef CONFIG_TCPSERVER_H
+#define CONFIG_TCPSERVER_H
+
+#include "../../include/config/config_base.h"
+#include "../../include/util/util.h"
+
+namespace config
+{
+	namespace tcpServer
+	{
+	    using namespace config::base;
+
+		struct _tcpServer_channel
+		{
+			std::string name;
+			std::string high;
+		} ;
+
+		class channel : public config
+		{
+		public:
+		    const std::string ID_xxx_name="name";
+		    const std::string ID_xxx_bps="bps";
+		    const std::string ID_xxx_ip="ip";
+		    const std::string ID_xxx_high="high";
+		    const std::string ID_xxx_group="group";
+
+			channel()
+			{
+                clear();
+			}
+
+            void clear()
+            {
+                set("cctv1gq.name","CCTV-1高清");
+                set("cctv2.name","CCTV-2");
+                set("CCTV3.name","CCTV-3");
+                set("CCTV4.name","CCTV-4");
+                set("CCTV5.name","CCTV-5");
+                set("CCTV6.name","CCTV-6");
+                set("CCTV7.name","CCTV-7");
+                set("CCTV8.name","CCTV-8");
+                set("cctvgq.name","CCTV-5+高清");
+                set("cctv10.name","CCTV-10");
+                set("CCTV11.name","CCTV-11");
+                set("CCTV12.name","CCTV-12");
+                set("CCTV13.name","CCTV-13");
+                set("CCTV14.name","CCTV-14");
+                set("CCTV15.name","CCTV-15");
+                set("cctv-fyzq.name","CCTV-风云足球");
+                set("cctv-dszn.name","CCTV-电视指南");
+                set("cctv-fyjc.name","CCTV-风云剧场");
+                set("cctv-hjjc.name","CCTV-怀旧剧场");
+                set("cctv-gfjs.name","CCTV-国防军事");
+                set("cctv-sjdl.name","CCTV-世界地理");
+                set("cctv-ysjp.name","CCTV-央视精品");
+                set("cctv-gef.name","CCTV-高尔夫网球");
+                set("zhms.name","CCTV-中华美食");
+                set("nxss.name","CCTV-女性时尚");
+                set("yxjj.name","CCTV-游戏竞技");
+                set("gdgq.name","广东卫视高清");
+                set("hljws.name","黑龙江卫视高清");
+                set("szgq.name","深圳卫视高清");
+                set("bjgq.name","北京卫视高清");
+                set("dfgq.name","东方卫视高清");
+                set("zjgq.name","浙江卫视高清");
+                set("hngq.name","湖南卫视高清");
+                set("jsgq.name","江苏卫视高清");
+                set("tjws.name","天津卫视");
+                set("lnws.name","辽宁卫视");
+                set("ahws.name","安徽卫视");
+                set("sdws.name","山东卫视");
+                set("nxws.name","宁夏卫视");
+                set("lyws.name","旅游卫视");
+                set("cqws.name","重庆卫视");
+                set("dongnanws.name","东南卫视");
+                set("gxws.name","广西卫视");
+                set("scws.name","四川卫视");
+                set("jlws.name","吉林卫视");
+                set("gzws.name","贵州卫视");
+                set("qhws.name","青海卫视");
+                set("henanws.name","河南卫视");
+                set("sxws.name","山西卫视");
+                set("jxws.name","江西卫视");
+                set("hebeiws.name","河北卫视");
+                set("ynws.name","云南卫视");
+                set("gsws.name","甘肃卫视");
+                set("xjws.name","新疆卫视");
+                set("nmgws.name","内蒙古卫视");
+                set("hubeiws.name","湖北卫视");
+                set("tvb8.name","TVB8");
+                set("fhws.name","凤凰卫视");
+                set("fhzx.name","凤凰资讯");
+            }
+		};
+
+		class secret : public config
+		{
+		public:
+		    const std::string ID_streamHostArr="streamHostArr";
+		    const std::string ID_key="key";
+		    const std::string ID_ip="ip";
+		    const std::string ID_kenc="kenc";
+		    const std::string ID_use_val="use_val";
+
+			secret()
+			{
+                clear();
+			}
+
+            void clear()
+            {
+                set("streamHostArr","http://streamabr.jstv.com");
+                set("ip","");
+                set("key","");
+                set("kenc","");
+                set("use_val",0);
+            }
+		};
+
+		typedef boost::serialization::singleton<secret> so_secret;
+		typedef boost::serialization::singleton<channel> so_channel;
+	}
+}
+#endif

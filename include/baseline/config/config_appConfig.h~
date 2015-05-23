@@ -1,0 +1,45 @@
+#ifndef CONFIG_APPCONFIG_H_INCLUDED
+#define CONFIG_APPCONFIG_H_INCLUDED
+
+#include "../../include/config/config.h"
+#include "../../include/util/util.h"
+
+namespace config
+{
+	namespace app
+	{
+	    using namespace config::base;
+
+		class appConfig : public config
+		{
+		public:
+		    bool is_big_endian;
+		    std::size_t is_bits;
+
+			appConfig():is_bits(0),is_big_endian(true)
+			{
+                clear();
+			}
+
+            void clear()
+            {
+                set("is_big_endian",check_big());
+                set("is_bits",util::is_bits());
+            }
+
+        private:
+            const char array_big_1[2]={0x01,0x00};
+            bool check_big()
+            {
+                uint16_t vint=1;
+                if((uint16_t&)array_big_1==vint)
+                    return true;
+                return false;
+            }
+		};
+
+		typedef boost::serialization::singleton<appConfig> so_appConfig;
+	}
+}
+
+#endif // CONFIG_APPCONFIG_H_INCLUDED
